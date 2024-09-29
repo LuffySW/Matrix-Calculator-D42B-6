@@ -1,5 +1,7 @@
 package Matrix;
 
+import Aplikasi.Inverse;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -13,7 +15,7 @@ public class Operation {
     }
     return c;
   }
-  
+
   public static Matrix subtractMatrix(Matrix a, Matrix b){
     Matrix c = new Matrix(a.getRow(), a.getCol());
     for(int i = 0; i < a.getRow(); i++){
@@ -80,7 +82,7 @@ public class Operation {
   }
 
 
-  
+
   public static double sumCol(Matrix m, int col){
     double sum = 0;
     for(int i = 0; i < m.getRow(); i++){
@@ -180,4 +182,31 @@ public class Operation {
       return Double.parseDouble(s.split("/")[0]) / Double.parseDouble(s.split("/")[1]);
     }
   }
+
+  public static Matrix subtract(Matrix a, Matrix b) {
+    if (a.getRow() != b.getRow() || a.getCol() != b.getCol()) {
+      throw new IllegalArgumentException("Matriks harus memiliki ukuran yang sama untuk dikurangkan.");
+    }
+    Matrix result = new Matrix(a.getRow(), a.getCol());
+    for (int i = 0; i < a.getRow(); i++) {
+      for (int j = 0; j < a.getCol(); j++) {
+        result.setElmt(i, j, a.getElmt(i, j) - b.getElmt(i, j));
+      }
+    }
+    return result;
+  }
+
+
+
+  public static Matrix divideMatrix(Matrix a, Matrix b) {
+    Matrix bInverse = Inverse.inverseAdjoint(b);
+
+    if (bInverse == null) {
+      throw new IllegalArgumentException("Matriks B tidak mempunyai balikan, pembagian tidak dapat dilakukan.");
+    }
+
+    return multMatrix(a, bInverse);
+  }
+
+
 }

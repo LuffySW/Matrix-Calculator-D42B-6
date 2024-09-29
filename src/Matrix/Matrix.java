@@ -61,25 +61,22 @@ public class Matrix {
 
   //OPERASI
 
-  public void createMatrix(){  
+  public void createMatrix(){
     InputStreamReader inputan = new InputStreamReader(System.in);
     BufferedReader readInput = new BufferedReader(inputan);
 
     for(int i = 0; i < this.row; i++){
-
-      String[] element;
-      String line = new String();
-
-      try {
-        line = readInput.readLine();
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-      element = line.split(" ");
       for(int j = 0; j < this.col; j++){
-        double d = Operation.eval(element[j]);
+        String line = new String();
+        try {
+          System.out.println("Masukkan elemen baris " + (i+1) + ", kolom " + (j+1) + ":");
+          line = readInput.readLine();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+        double d = Operation.eval(line); // evaluasi elemen input
         d = BigDecimal.valueOf(d).setScale(8, RoundingMode.HALF_UP).doubleValue();
-        this.mtxr[i][j] = d;
+        this.mtxr[i][j] = d; // masukkan ke matrix
       }
     }
   }

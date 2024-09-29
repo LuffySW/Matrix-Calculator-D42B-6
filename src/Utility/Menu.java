@@ -313,23 +313,19 @@ public class Menu {
   }
 
   public static void input() {
-    System.out.println("╔══════════════════════════════════════════╗");
-    System.out.println("║             PILIH JENIS INPUT            ║");
-    System.out.println("╠══════════════════════════════════════════╣");
-    System.out.println("║  1. File                                 ║");
-    System.out.println("║  2. Keyboard                             ║");
-    System.out.println("╠══════════════════════════════════════════╣");
-    System.out.print("║  Masukkan pilihan Anda (1-2): ");
+    System.out.println("");
+    System.out.println("###### Pilih jenis input ######");
+    System.out.println("1. File");
+    System.out.println("2. Keyboard");
+    System.out.print("Masukan pilihan: ");
   }
 
   public static void output() {
-    System.out.println("╔══════════════════════════════════════════╗");
-    System.out.println("║             PILIH JENIS OUTPUT           ║");
-    System.out.println("╠══════════════════════════════════════════╣");
-    System.out.println("║  1. File                                 ║");
-    System.out.println("║  2. Layar                                ║");
-    System.out.println("╠══════════════════════════════════════════╣");
-    System.out.print("║  Masukkan pilihan Anda (1-2): ");
+    System.out.println("");
+    System.out.println("###### Pilih jenis output ######");
+    System.out.println("1. File");
+    System.out.println("2. Keyboard");
+    System.out.print("Masukan pilihan: ");
   }
 
   public static void inputMatrix(){
@@ -438,15 +434,13 @@ public class Menu {
   }
 
   public static void SPLKeyboard(){
-    System.out.println("╔══════════════════════════════════════════╗");
-    System.out.println("║      PILIH METODE YANG INGIN DIGUNAKAN   ║");
-    System.out.println("╠══════════════════════════════════════════╣");
-    System.out.println("║  1. Metode Eliminasi Gauss               ║");
-    System.out.println("║  2. Metode Eliminasi Gauss-Jordan        ║");
-    System.out.println("║  3. Metode Matriks Balikan               ║");
-    System.out.println("║  4. Kaidah Cramer                        ║");
-    System.out.println("╠══════════════════════════════════════════╣");
-    System.out.print("║  Masukkan pilihan Anda (1-4): ");
+    System.out.println("");
+    System.out.println("###### Pilih metode yang ingin digunakan ######");
+    System.out.println("1. Metode Eliminasi Gauss");
+    System.out.println("2. Metode Eliminasi Gauss-Jordan");
+    System.out.println("3. Metode Matriks Balikan");
+    System.out.println("4. Kaidah Cramer");
+    System.out.print("Masukan pilihan: ");
     int i = 0;
     try {
       i = Integer.parseInt(bufferedReader.readLine());
@@ -473,14 +467,12 @@ public class Menu {
   }
 
   public static void DeterminanKeyboard() {
-    System.out.println("╔══════════════════════════════════════════╗");
-    System.out.println("║     PILIH METODE YANG INGIN DIGUNAKAN   ║");
-    System.out.println("╠══════════════════════════════════════════╣");
-    System.out.println("║  1. Metode Eliminasi Gauss               ║");
-    System.out.println("║  2. Metode Ekspansi Kofaktor             ║");
-    System.out.println("║  3. Metode Sarrus                        ║");
-    System.out.println("╠══════════════════════════════════════════╣");
-    System.out.print("║  Masukkan pilihan Anda (1-3): ");
+    System.out.println("");
+    System.out.println("###### Pilih metode yang ingin digunakan ######");
+    System.out.println("1. Metode Eliminasi Gauss");
+    System.out.println("2. Metode Ekspansi Kofaktor");
+    System.out.println("3. Metode Sarrus");
+    System.out.print("Masukan pilihan: ");
     int i = 0;
     try {
       i = Integer.parseInt(bufferedReader.readLine());
@@ -648,15 +640,13 @@ public class Menu {
 
   public static void DeterminanFile() {
     outputFile();
-    System.out.println("╔══════════════════════════════════════════╗");
-    System.out.println("║      PILIH METODE YANG INGIN DIGUNAKAN   ║");
-    System.out.println("╠══════════════════════════════════════════╣");
-    System.out.println("║  1. Metode Eliminasi Gauss               ║");
-    System.out.println("║  2. Metode Ekspansi Kofaktor             ║");
-    System.out.println("║  3. Metode Sarrus                        ║");
-    System.out.println("╠══════════════════════════════════════════╣");
-    System.out.print("║  Masukkan pilihan Anda (1-3): ");
-    
+    System.out.println("");
+    System.out.println("###### Pilih metode yang ingin digunakan ######");
+    System.out.println("1. Metode Eliminasi Gauss");
+    System.out.println("2. Metode Ekspansi Kofaktor");
+    System.out.println("3. Metode Sarrus");
+    System.out.print("Masukan pilihan: ");
+
     int i = 0;
     try {
       i = Integer.parseInt(bufferedReader.readLine());
@@ -682,13 +672,12 @@ public class Menu {
 
   public static void InverseFile() {
     outputFile();
-    System.out.println("╔══════════════════════════════════════════╗");
-    System.out.println("║      PILIH METODE YANG INGIN DIGUNAKAN   ║");
-    System.out.println("╠══════════════════════════════════════════╣");
-    System.out.println("║  1. Metode Eliminasi Gauss-Jordan        ║");
-    System.out.println("║  2. Metode Adjoint                       ║");
-    System.out.println("╠══════════════════════════════════════════╣");
-    System.out.print("║  Masukkan pilihan Anda (1-2): ");
+    System.out.println("");
+    System.out.println("###### Pilih metode yang ingin digunakan ######");
+    System.out.println("1. Metode Eliminasi Gauss-Jordan");
+    System.out.println("2. Metode Adjoint");
+    System.out.print("Masukan pilihan: ");
+
     int i = 0;
     try {
       i = Integer.parseInt(bufferedReader.readLine());
@@ -711,17 +700,14 @@ public class Menu {
 
   public static void SPLFile() {
     outputFile();
-    System.out.println("╔══════════════════════════════════════════╗");
-    System.out.println("║      PILIH METODE YANG INGIN DIGUNAKAN   ║");
-    System.out.println("╠══════════════════════════════════════════╣");
-    System.out.println("║  1. Metode Eliminasi Gauss               ║");
-    System.out.println("║  2. Metode Eliminasi Gauss-Jordan        ║");
-    System.out.println("║  3. Metode Matriks Invers                ║");
-    System.out.println("║  4. Kaidah Cramer                        ║");
-    System.out.println("╠══════════════════════════════════════════╣");
-    System.out.print("║  Masukkan pilihan Anda (1-4): ");
+    System.out.println("");
+    System.out.println("###### Pilih metode yang ingin digunakan ######");
+    System.out.println("1. Metode Eliminasi Gauss");
+    System.out.println("2. Metode Eliminasi Gauss-Jordan");
+    System.out.println("3. Metode Matriks Balikan");
+    System.out.println("4. Kaidah Cramer");
+    System.out.print("Masukan pilihan: ");
     int i = 0;
-
     try {
       i = Integer.parseInt(bufferedReader.readLine());
     } catch (IOException e) {
@@ -744,6 +730,162 @@ public class Menu {
         System.out.println("\nMohon masukan input yang benar!");
         break;
     }
+  }
+
+  public static void basicMatrixOperations() {
+    try {
+      System.out.println("");
+      System.out.println("###### Pilih operasi dasar matriks ######");
+      System.out.println("1. Penjumlahan matriks");
+      System.out.println("2. Pengurangan matriks");
+      System.out.println("3. Perkalian matriks");
+      System.out.println("4. Pembagian matriks");
+      System.out.print("Masukan pilihan: ");
+
+      int i = 0;
+      try {
+        i = Integer.parseInt(bufferedReader.readLine());
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+
+      Matrix a = inputMatrixFromUser("pertama");
+      Matrix b = inputMatrixFromUser("kedua");
+      Matrix result = null;
+
+      switch (i) {
+        case 1:
+          if (a.getRow() != b.getRow() || a.getCol() != b.getCol()) {
+            throw new IllegalArgumentException("Matriks harus memiliki ukuran yang sama untuk dijumlahkan.");
+          }
+          result = Operation.addMatrix(a, b);
+          break;
+        case 2:
+          if (a.getRow() != b.getRow() || a.getCol() != b.getCol()) {
+            throw new IllegalArgumentException("Matriks harus memiliki ukuran yang sama untuk dikurangkan.");
+          }
+          result = Operation.subtractMatrix(a, b);
+          break;
+        case 3:
+          if (a.getCol() != b.getRow()) {
+            throw new IllegalArgumentException("Jumlah kolom matriks pertama harus sama dengan jumlah baris matriks kedua untuk dikalikan.");
+          }
+          result = Operation.multMatrix(a, b);
+          break;
+        case 4:
+          if (b.getRow() != b.getCol()) {
+            throw new IllegalArgumentException("Matriks kedua harus matriks persegi untuk pembagian.");
+          }
+          result = Operation.divideMatrix(a, b);
+          break;
+        default:
+          System.out.println("\nMohon masukan input yang benar!");
+          return;
+      }
+
+      System.out.println("Hasil operasi adalah: ");
+      result.displayMatrix();
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
+    }
+  }
+
+  public static void basicMatrixOperationFile() {
+    try{
+      System.out.println("");
+      System.out.println("###### Pilih operasi dasar matriks ######");
+      System.out.println("1. Penjumlahan matriks");
+      System.out.println("2. Pengurangan matriks");
+      System.out.println("3. Perkalian matriks");
+      System.out.println("4. Pembagian matriks");
+      System.out.print("Masukan pilihan: ");
+
+      int i = 0;
+      try {
+        i = Integer.parseInt(bufferedReader.readLine());
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+
+      Matrix a = inputMatrixFromFile("pertama");
+      Matrix b = inputMatrixFromFile("kedua");
+      Matrix result = null;
+
+      switch (i) {
+        case 1:
+          if (a.getRow() != b.getRow() || a.getCol() != b.getCol()) {
+            throw new IllegalArgumentException("Matriks harus memiliki ukuran yang sama untuk dijumlahkan.");
+          }
+          result = Operation.addMatrix(a, b);
+          break;
+        case 2:
+          if (a.getRow() != b.getRow() || a.getCol() != b.getCol()) {
+            throw new IllegalArgumentException("Matriks harus memiliki ukuran yang sama untuk dikurangkan.");
+          }
+          result = Operation.subtract(a, b);
+          break;
+        case 3:
+          if (a.getCol() != b.getRow()) {
+            throw new IllegalArgumentException("Jumlah kolom matriks pertama harus sama dengan jumlah baris matriks kedua untuk dikalikan.");
+          }
+          result = Operation.multMatrix(a, b);
+          break;
+        case 4:
+          if (b.getRow() != b.getCol()) {
+            throw new IllegalArgumentException("Matriks kedua harus matriks persegi untuk pembagian.");
+          }
+          result = Operation.divideMatrix(a, b);
+          break;
+        default:
+          System.out.println("\nMohon masukan input yang benar!");
+          return;
+      }
+
+      outputFile();
+      IO.writeFileMatrix(Menu.namaFile, result);
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
+    }
+  }
+
+  public static Matrix inputMatrixFromUser(String matrixName) {
+    System.out.println("Masukkan ukuran dan elemen matriks " + matrixName + ":");
+    System.out.print("Masukkan jumlah baris: ");
+    int rows = 0;
+    try {
+      rows = Integer.parseInt(bufferedReader.readLine());
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    System.out.print("Masukkan jumlah kolom: ");
+    int cols = 0;
+    try {
+      cols = Integer.parseInt(bufferedReader.readLine());
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    Matrix m = new Matrix(rows, cols);
+    System.out.println("Masukkan elemen matriks:");
+    m.createMatrix();
+    return m;
+  }
+
+  public static Matrix inputMatrixFromFile(String matrixName) {
+    System.out.println("Pilih file untuk matriks " + matrixName + " yang akan dibaca!");
+    IO.printListDir();
+
+    File[] listFiles = IO.getListDir();
+    System.out.print("Masukan pilihan: ");
+    int q = 0;
+    try {
+      q = Integer.parseInt(bufferedReader.readLine());
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    return IO.readMatrix(listFiles[q - 1].getName());
   }
 
   public static void TransposeFile() {

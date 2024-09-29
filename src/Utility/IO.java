@@ -21,7 +21,7 @@ public class IO {
   public static int readRow(String s) {
     int count = 0;
     try{
-      FileReader reader = new FileReader(String.format("D:/SMT 3/Tubes Aljabar Linear/Matrix-Calculator-D42B-6/test/%s", s));
+      FileReader reader = new FileReader(String.format("D:/SMT 3/Tubes Aljabar Linear/Matrix-Calculator-D42B-6/%s", s));
       BufferedReader bufferReader = new BufferedReader(reader);
   
       while(bufferReader.readLine() != null){
@@ -76,7 +76,7 @@ public class IO {
 
   public static void writeFileMatrix(String namaFile, Matrix m){
     try{
-      FileWriter writer = new FileWriter(String.format("D:/SMT 3/Tubes Aljabar Linear/Matrix-Calculator-D42B-6/test/%s.txt", namaFile));
+      FileWriter writer = new FileWriter(String.format("D:/SMT 3/Tubes Aljabar Linear/Matrix-Calculator-D42B-6/%s.txt", namaFile));
       for(int i = 0; i < m.getRow(); i++){
         for(int j = 0; j < m.getCol(); j++){
           String temp = Double.toString(m.getElmt(i, j));

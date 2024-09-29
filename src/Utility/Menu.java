@@ -32,12 +32,12 @@ public class Menu {
     System.out.println("");
     System.out.println("SELAMAT DATANG DI MATRIX CALCULATOR");
     System.out.println("###### MENU ######");
-    System.out.println("1. Interpolasi polinom");
-    System.out.println("2. Regresi linear berganda");
-    System.out.println("3. Menghitung determinan matrix");
-    System.out.println("4. Menghitung matriks balikan");
+    System.out.println("1. Operasi Dasar");
+    System.out.println("2. Perkalian Skalar dengan Matriks");
+    System.out.println("3. Menghitung Determinan Matriks");
+    System.out.println("4. Menghitung Matriks Invers (Balikan)");
     System.out.println("5. Menyelesaikan SPL");
-    System.out.println("6. Menghitung transpose matriks");
+    System.out.println("6. Menghitung Transpose Matriks");
     System.out.println("7. Keluar");
     System.out.print("Masukan pilihan: ");
 
@@ -50,44 +50,26 @@ public class Menu {
     }
     switch (i) {
       case 1:
-        input();
+        inputOperasiMatriks();
         try {
           q = Integer.parseInt(bufferedReader.readLine());
         } catch (IOException e) {
           e.printStackTrace();
-        }
-        switch (q) {
-          case 1:
-            inputFileMatrix();
-            Menu.m = Interpolasi.MatrixToMatrixInterpolasi(Menu.m);
-            break;
-          case 2:
-            inputInterpolasi();
-            break;
-          default:
-            System.out.println("\nMohon masukan input yang benar!");
-            break;
-        }
-        break;
+      }
+       switch (q) {
+        case 1:
+          inputFileSqrtMatrix();
+          break;
+        case 2:
+          inputSqrtMatrix();
+          break;
+        default:
+          System.out.println("\nMohon masukan input yang benar!");
+          break;
+       }
+      break;
       case 2:
-        input();
-        try {
-          q = Integer.parseInt(bufferedReader.readLine());
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
-        switch (q) {
-          case 1:
-            inputFileMatrix();
-            break;
-          case 2:
-            inputRegresi();
-            break;
-          default:
-            System.out.println("\nMohon masukan input yang benar!");
-            break;
-        }
-        break;
+      break;
       case 3:
         input();
         try {
@@ -179,37 +161,9 @@ public class Menu {
         } catch (IOException e) {
           e.printStackTrace();
         }
-        switch (q) {
-          case 1:
-            InterpolasiFile();
-            break;
-          case 2:
-            InterpolasiKeyboard();
-            break;
-          default:
-            System.out.println("\nMohon masukan input yang benar!");
-            break;
-        }
-        break;
+      break;
       case 2:
-        output();
-        try {
-          q = Integer.parseInt(bufferedReader.readLine());
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
-        switch (q) {
-          case 1:
-            RegresiFile();
-            break;
-          case 2:
-            RegresiKeyboard();
-            break;
-          default:
-            System.out.println("\nMohon masukan input yang benar!");
-            break;
-        }
-        break;
+      break;
       case 3:
         output();
         try {
@@ -307,6 +261,16 @@ public class Menu {
     System.out.print("Masukan pilihan: ");
   }
 
+  public static void inputOperasiMatriks(){
+    System.out.println("");
+    System.out.println("###### Pilih jenis operasi dasar ######");
+    System.out.println("1. Penjumlahan matriks");
+    System.out.println("2. Pengurangan matriks");
+    System.out.println("3. Perkalian matriks dengan matriks");
+    System.out.print("Masukan pilihan: ");
+    //ini lanjutin sama code nya
+  }
+
   public static void inputMatrix(){
     System.out.println("");
     System.out.println("Akan dibuat matrix berukuran m x n");
@@ -349,45 +313,6 @@ public class Menu {
     Menu.m.createMatrix();
   }
 
-  public static void inputInterpolasi(){
-    System.out.println("");
-    System.out.println("Akan dibuat interpolasi dengan pasangan sebanyak n buah");
-    System.out.print("Masukan n: ");
-    int n = 0;
-
-    try {
-      n = Integer.parseInt(bufferedReader.readLine());
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    Menu.m = new Matrix(n, n + 1);
-
-    System.out.println("Silahkan masukan setiap pasangan: ");
-    Menu.m = Interpolasi.masukkanInterpolasi(n);
-  }
-
-  public static void inputRegresi(){
-    System.out.println("");
-    System.out.println("Akan dibuat RLB (Regresi Linear Berganda) dengan n buah persamaan dengan k peubah");
-    System.out.print("Masukan n: ");
-
-    int n = 0;
-    try {
-      n = Integer.parseInt(bufferedReader.readLine());
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    System.out.print("Masukan k: ");
-    int k = 0;
-    try {
-      k = Integer.parseInt(bufferedReader.readLine());
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    Menu.m = new Matrix(n, k + 1);
-    System.out.println("Silahkan masukkan data:");
-    Menu.m.createMatrix();
-  }
 
   public static void inputTranspose() {
     System.out.println("");
@@ -417,7 +342,7 @@ public class Menu {
     System.out.println("###### Pilih metode yang ingin digunakan ######");
     System.out.println("1. Metode Eliminasi Gauss");
     System.out.println("2. Metode Eliminasi Gauss-Jordan");
-    System.out.println("3. Metode Matriks Balikan");
+    System.out.println("3. Metode Matriks Invers (Balikan)");
     System.out.println("4. Kaidah Cramer");
     System.out.print("Masukan pilihan: ");
     int i = 0;
@@ -448,9 +373,9 @@ public class Menu {
   public static void DeterminanKeyboard() {
     System.out.println("");
     System.out.println("###### Pilih metode yang ingin digunakan ######");
-    System.out.println("1. Metode Eliminasi Gauss");
+    System.out.println("1. Metode Eliminasi Gauss (OBE)");
     System.out.println("2. Metode Ekspansi Kofaktor");
-    System.out.println("3. Metode Sarrus");
+    System.out.println("3. Metode Sarrus (Hanya untuk Matriks 3x3)");
     System.out.print("Masukan pilihan: ");
     int i = 0;
     try {
@@ -683,7 +608,7 @@ public class Menu {
     System.out.println("###### Pilih metode yang ingin digunakan ######");
     System.out.println("1. Metode Eliminasi Gauss");
     System.out.println("2. Metode Eliminasi Gauss-Jordan");
-    System.out.println("3. Metode Matriks Balikan");
+    System.out.println("3. Metode Matriks Invers (Balikan)");
     System.out.println("4. Kaidah Cramer");
     System.out.print("Masukan pilihan: ");
     int i = 0;

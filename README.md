@@ -4,6 +4,45 @@
 
 Tugas ini adalah proyek untuk membangun sebuah kalkulator matriks yang menghitung **Operasi Dasar Matrix**, **Perkalian Skalar Dengan Matrix**, **Sistem Persamaan Linear**,  **Determinan**, **Menghitung Matriks Invers**, **Menghitung Transpose Matrix**. 
 
+## Fitur
+
+### 1. Operasi Dasar Matriks
+
+Program mendukung empat operasi dasar pada matriks:
+
+- **Penjumlahan**: Menambahkan dua matriks berukuran sama.
+- **Pengurangan**: Mengurangi satu matriks dari matriks lainnya.
+- **Perkalian**: Mengalikan dua matriks.
+- **Pembagian**: Membagi elemen-elemen matriks satu dengan yang lain (hanya untuk elemen-elemen yang valid).
+
+### 2. Perkalian Skalar
+
+Dapat mengalikan matriks dengan skalar, yaitu angka tunggal yang dikalikan dengan setiap elemen dalam matriks.
+
+### 3. Perhitungan Determinan
+
+Program ini menyediakan tiga metode untuk menghitung determinan matriks:
+
+- **Metode Eliminasi Gauss**: Menggunakan eliminasi baris untuk mengubah matriks menjadi bentuk segitiga atas sebelum menghitung determinan.
+
+- **Metode Ekspansi Kofaktor**: Menghitung determinan dengan mengembangkan elemen-elemen dalam baris atau kolom tertentu melalui kofaktor.
+- **Metode Sarrus**: Khusus untuk matriks 3x3, metode Sarrus memberikan cara cepat untuk menghitung determinan.
+
+### 4. Invers Matriks
+
+Dapat menghitung invers matriks menggunakan dua metode:
+
+- **Metode Eliminasi Gauss Jordan**: Mengubah matriks menjadi matriks identitas dengan operasi baris elementer.
+- **Metode Adjoint**: Menggunakan matriks adjoint dan determinan untuk menghitung invers.
+
+### 5. Penyelesaian Sistem Persamaan Linear (SPL)
+
+Program ini menyediakan beberapa metode untuk menyelesaikan SPL dalam bentuk matriks:
+
+- **Metode Eliminasi Gauss**: Menggunakan eliminasi baris untuk menyelesaikan SPL.
+- **Metode Eliminasi Gauss Jordan**: Penyelesaian SPL melalui modifikasi metode Gauss.
+- **Metode Matriks Invers**: Menyelesaikan SPL menggunakan invers dari matriks koefisien.
+- **Kaidah Cramer**: Menyelesaikan SPL dengan menggunakan determinan matriks.
 ---
 
 ## File Structure

@@ -1,63 +1,63 @@
-# Algeo01-20029 - AlgeoKerenGaming
+# Matrix-Calculator-D42B-6
 
-Tugas Besar 1 Aljabar Linear dan Geometri IF20 is a project to build matrice calculator which calculates Polynomial Interpolation, Multiple Linear Regression, Linear Equation System and Determinant. Don't forget to set the precision correctly to get exact result.
+## Tugas Besar 1 Aljabar Linear dan Geometri D4-2B
+
+Tugas ini adalah proyek untuk membangun sebuah kalkulator matriks yang menghitung **Operasi Dasar Matrix**, **Perkalian Skalar Dengan Matrix**, **Sistem Persamaan Linear**,  **Determinan**, **Menghitung Matriks Invers**, **Menghitung Transpose Matrix**. 
 
 ---
 
 ## File Structure
 
 ```
-├── README.md
+├── .idea
 ├── bin
-│   ├── Aplikasi
-│   │   ├── Crammer.class
-│   │   ├── Determinan.class
-│   │   ├── Interpolasi.class
-│   │   ├── Inverse.class
-│   │   ├── RLB.class
-│   │   └── SistemPersamaanLinear.class
-│   ├── Main.class
-│   ├── Matrix
-│   │   ├── Matrix.class
-│   │   └── Operation.class
-│   └── Utility
-│       ├── IO.class
-│       └── Menu.class
-├── doc
-│   └── Algeo01-20029.pdf
-├── lib
-│   └── Algeo01-20029.jar
+├── out
+│   ├── production
+│       └── Matrix-Calculator-D42B-6
+│           ├── Aplikasi
+│           │   ├── Crammer.class
+│           │   ├── Determinan.class
+│           │   ├── Interpolasi.class
+│           │   ├── Inverse.class
+│           │   ├── RLB.class
+│           │   └── SistemPersamaanLinear.class
+│           ├── Matrix
+│           │   ├── Matrix.class
+│           │   └── Operation.class
+│           └── Utility
+│               ├── IO.class
+│               └── Menu.class
 ├── src
-│   ├── Aplikasi
-│   │   ├── Crammer.java
-│   │   ├── Determinan.java
-│   │   ├── Interpolasi.java
-│   │   ├── Inverse.java
-│   │   ├── RLB.java
-│   │   └── SistemPersamaanLinear.java
-│   ├── Main.java
-│   ├── Matrix
-│   │   ├── Matrix.java
-│   │   └── Operation.java
-│   └── Utility
-│       ├── IO.java
-│       └── Menu.java
-└── test
-    ├── 1_a.txt
-    ├── 1_b.txt
-    ├── 1_c.txt
-    ├── 1_d1.txt
-    ├── 1_d2.txt
-    ├── 2_a.txt
-    ├── 2_b.txt
-    ├── 3_a.txt
-    ├── 3_b.txt
-    ├── 4.txt
-    ├── 5.txt
-    ├── 6_a.txt
-    ├── 6_b.txt
-    ├── 6_c.txt
-    └── 7.txt
+│   ├── Aplikasi
+│   │   ├── Crammer.java
+│   │   ├── Determinan.java
+│   │   ├── Interpolasi.java
+│   │   ├── Inverse.java
+│   │   ├── RLB.java
+│   │   └── SistemPersamaanLinear.java
+│   ├── Matrix
+│   │   ├── Matrix.java
+│   │   └── Operation.java
+│   └── Utility
+│       ├── IO.java
+│       └── Menu.java
+├── test
+│   ├── 2x6.txt
+│   ├── 2x7.txt
+│   ├── 2x10.txt
+│   ├── 3_b.txt
+│   ├── 3x3.txt
+│   ├── 3x3_2.txt
+│   ├── 4x3.txt
+│   ├── 4x4.txt
+│   ├── 5x4.txt
+│   ├── 5x4_1.txt
+│   ├── 5x4_2.txt
+│   ├── 5x6.txt
+│   ├── 6x4.txt
+│   ├── 6x6.txt
+│   └── 7.txt
+
 ```
 
 ---
@@ -66,34 +66,24 @@ Tugas Besar 1 Aljabar Linear dan Geometri IF20 is a project to build matrice cal
 
 ### Using source code
 
-1. Clone folder with `git clone https://github.com/IloveNooodles/Algeo01-20029.git` or download the zip file from the github
-1. Go to the folder `cd Algeo01-20029`
-1. Go to bin folder `cd bin`
+1. Clone folder with `git clone https://github.com/LuffySW/Matrix-Calculator-D42B-6.git` or download the zip file from the github
 1. Run matrix calculator using `java Main` command
 1. test folder is used to store input and output txt file
-1. you can also run the jar using `java -jar <jar-file.jar>`
 
-### Using Jar Separately (Release ver)
 
-1. Download the jar file
-1. To use the jar file, you must make siblings folder and one folder name test
-1. It will look like this
-1. test file will contain input text and it will be output folder too
 
-```
-├── <nama folder jar>
-│   └── <jar-file.jar>
-│  
-└── test
-    └── <test-case.txt>
-
-```
-
-1. after you set up the folder `cd <nama folder jar>` to go to the directory
-1. use `java -jar <jar-file.jar>` to run the program
 
 ---
+## Contributors
 
-## Note
+1. Astria Rizka Latifahsary **(231524037)**
+1. Devi Febrianti **(231524039)**
+1. Luthfi Satrio Wicaksono **(231524049)**
+1. Muhammad Hasbi Asshidiqi **(231524055)**
 
-Make sure you inputed the matrices right, because we use buffered reader so the number of element in the row or column must be precise
+## Referensi
+
+
+Repository ini adalah fork dari Matrix-Calculator. Repository asli dapat dilihat di [sini](https://github.com/IloveNooodles/Matrix-Calculator).
+
+

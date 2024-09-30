@@ -14,6 +14,13 @@ public class Menu {
   private static String namaFile;
 
   public static void menuLoop(){
+    try {
+      // Tampilkan layar selamat datang
+      showWelcomeScreen();
+    } catch (InterruptedException e) {
+      System.out.println("Terjadi kesalahan pada proses loading: " + e.getMessage());
+    }
+
     char Y = '\0';
     do {
       mainMenu();
@@ -28,20 +35,86 @@ public class Menu {
     exit();
   }
 
-  public static void mainMenu() {
-    System.out.println("");
-    System.out.println("SELAMAT DATANG DI MATRIX CALCULATOR");
-    System.out.println("###### MENU ######");
-    System.out.println("1. Operasi dasar matriks");
-    System.out.println("2. Interpolasi polinom");
-    System.out.println("3. Regresi linear berganda");
-    System.out.println("4. Menghitung determinan matrix");
-    System.out.println("5. Menghitung matriks balikan");
-    System.out.println("6. Menyelesaikan SPL");
-    System.out.println("7. Menghitung transpose matriks");
-    System.out.println("8. Keluar");
-    System.out.print("Masukan pilihan: ");
+  // Fungsi untuk menampilkan layar selamat datang
+  public static void showWelcomeScreen() throws InterruptedException {
+    // Kode warna terminal (untuk terminal yang mendukung)
+    final String RESET = "\033[0m";   // Reset warna
+    final String RED = "\033[0;31m";  // Warna Merah
+    final String GREEN = "\033[0;32m"; // Warna Hijau
+    final String YELLOW = "\033[0;33m"; // Warna Kuning
+    final String BLUE = "\033[0;34m"; // Warna Biru
+    final String PURPLE = "\033[0;35m"; // Warna Ungu
+    final String CYAN = "\033[0;36m"; // Warna Cyan
 
+    System.out.println(CYAN + "░██╗░░░░░░░██╗███████╗██╗░░░░░░█████╗░░█████╗░███╗░░░███╗███████╗  ████████╗░█████╗░" + RESET);
+    System.out.println(CYAN + "░██║░░██╗░░██║██╔════╝██║░░░░░██╔══██╗██╔══██╗████╗░████║██╔════╝  ╚══██╔══╝██╔══██╗" + RESET);
+    System.out.println(CYAN + "░╚██╗████╗██╔╝█████╗░░██║░░░░░██║░░╚═╝██║░░██║██╔████╔██║█████╗░░  ░░░██║░░░██║░░██║" + RESET);
+    System.out.println(CYAN + "░░████╔═████║░██╔══╝░░██║░░░░░██║░░██╗██║░░██║██║╚██╔╝██║██╔══╝░░  ░░░██║░░░██║░░██║" + RESET);
+    System.out.println(CYAN + "░░╚██╔╝░╚██╔╝░███████╗███████╗╚█████╔╝╚█████╔╝██║░╚═╝░██║███████╗  ░░░██║░░░╚█████╔╝" + RESET);
+    System.out.println(CYAN + "░░░╚═╝░░░╚═╝░░╚══════╝╚══════╝░╚════╝░░╚════╝░╚═╝░░░░░╚═╝╚══════╝  ░░░╚═╝░░░░╚════╝░" + RESET);
+    System.out.println();
+    System.out.println(CYAN + "                  ███╗░░░███╗░█████╗░████████╗██████╗░██╗██╗░░██╗" + RESET);
+    System.out.println(CYAN + "                  ████╗░████║██╔══██╗╚══██╔══╝██╔══██╗██║╚██╗██╔╝" + RESET);
+    System.out.println(CYAN + "                  ██╔████╔██║███████║░░░██║░░░██████╔╝██║░╚███╔╝░" + RESET);
+    System.out.println(CYAN + "                  ██║╚██╔╝██║██╔══██║░░░██║░░░██╔══██╗██║░██╔██╗░" + RESET);
+    System.out.println(CYAN + "                  ██║░╚═╝░██║██║░░██║░░░██║░░░██║░░██║██║██╔╝╚██╗" + RESET);
+    System.out.println(CYAN + "                  ╚═╝░░░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝╚═╝╚═╝░░╚═╝" + RESET);
+    System.out.println();
+    System.out.println(CYAN + "░█████╗░░█████╗░██╗░░░░░░█████╗░██╗░░░██╗██╗░░░░░░█████╗░████████╗░█████╗░██████╗░" + RESET);
+    System.out.println(CYAN + "██╔══██╗██╔══██╗██║░░░░░██╔══██╗██║░░░██║██║░░░░░██╔══██╗╚══██╔══╝██╔══██╗██╔══██╗" + RESET);
+    System.out.println(CYAN + "██║░░╚═╝███████║██║░░░░░██║░░╚═╝██║░░░██║██║░░░░░███████║░░░██║░░░██║░░██║██████╔╝" + RESET);
+    System.out.println(CYAN + "██║░░██╗██╔══██║██║░░░░░██║░░██╗██║░░░██║██║░░░░░██╔══██║░░░██║░░░██║░░██║██╔══██╗" + RESET);
+    System.out.println(CYAN + "╚█████╔╝██║░░██║███████╗╚█████╔╝╚██████╔╝███████╗██║░░██║░░░██║░░░╚█████╔╝██║░░██║" + RESET);
+    System.out.println(CYAN + "░╚════╝░╚═╝░░╚═╝╚══════╝░╚════╝░░╚═════╝░╚══════╝╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░╚═╝░░╚═╝" + RESET);
+    System.out.println();
+
+    System.out.println(PURPLE + "                           Bringing you the power of                " + RESET);
+    System.out.println(PURPLE + "                          matrix operations made easy!             " + RESET);
+    System.out.println();
+    System.out.println(BLUE + "                              Loading the program...                " + RESET);
+    System.out.println();
+
+    // Menambahkan efek loading lucu
+    String[] loadingDots = {".", "..", "...", "Hampir Selesai", "Tunggu sebentar lagi"};
+    for (String dots : loadingDots) {
+        System.out.print("Loading" + dots);
+        Thread.sleep(700); // Memberikan jeda sejenak
+        System.out.print("\r"); // Menghapus baris sebelumnya
+    }
+
+    // Efek suara (simulasi dengan teks)
+    System.out.println(CYAN + "♫♫♫ DUNG DUNG DUNG... BUM BAM BAM... ♫♫♫" + RESET);
+    Thread.sleep(500);
+
+    // Pesan sambutan lucu
+    System.out.println(YELLOW + "Yap! Matrix Calculator sudah siap untuk dipakai!" + RESET);
+    System.out.println(PURPLE + "Jangan khawatir, nggak perlu jadi ahli matematika buat pakai ini :)" + RESET);
+    Thread.sleep(1000);
+
+    // Pesan akhir loading
+    System.out.println(BLUE + "Loading... Complete!" + RESET);
+    System.out.println(YELLOW + "Selamat datang! Matrix Calculator siap membantu perhitunganmu!" + RESET);
+    Thread.sleep(1000);
+}
+
+  public static void mainMenu() {    
+    System.out.println("╔═════════════════════════════════════════════════════╗");
+    System.out.println("║                                                     ║");
+    System.out.println("║          SELAMAT DATANG DI MATRIX CALCULATOR        ║");
+    System.out.println("║                                                     ║");
+    System.out.println("╠═════════════════════ MENU UTAMA ════════════════════╣");
+    System.out.println("║                                                     ║");
+    System.out.println("║  1. Operasi Dasar Matriks                           ║");
+    System.out.println("║  2. Perkalian Skalar dengan Matriks                 ║");
+    System.out.println("║  3. Menghitung Determinan Matriks                   ║");
+    System.out.println("║  4. Menghitung Matriks Invers (Balikan)             ║");
+    System.out.println("║  5. Menyelesaikan SPL                               ║");
+    System.out.println("║  6. Menghitung Transpose Matriks                    ║");
+    System.out.println("║  7. Keluar                                          ║");
+    System.out.println("║                                                     ║");
+    System.out.println("╚═════════════════════════════════════════════════════╝");
+    System.out.print("Masukkan pilihan Anda: ");
+    
     int i = 0, q = 0;
 
     try {
@@ -70,24 +143,7 @@ public class Menu {
         }
         break;
       case 2:
-        input();
-        try {
-          q = Integer.parseInt(bufferedReader.readLine());
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
-        switch (q) {
-          case 1:
-            inputFileMatrix();
-            Menu.m = Interpolasi.MatrixToMatrixInterpolasi(Menu.m);
-            break;
-          case 2:
-            inputInterpolasi();
-            break;
-          default:
-            System.out.println("\nMohon masukan input yang benar!");
-            break;
-        }
+        multiplyScalarWithMatrix();
         break;
       case 3:
         input();
@@ -98,10 +154,10 @@ public class Menu {
         }
         switch (q) {
           case 1:
-            inputFileMatrix();
+            inputFileSqrtMatrix();
             break;
           case 2:
-            inputRegresi();
+            inputSqrtMatrix();
             break;
           default:
             System.out.println("\nMohon masukan input yang benar!");
@@ -136,10 +192,10 @@ public class Menu {
         }
         switch (q) {
           case 1:
-            inputFileSqrtMatrix();
+            inputFileMatrix();
             break;
           case 2:
-            inputSqrtMatrix();
+            inputMatrix();
             break;
           default:
             System.out.println("\nMohon masukan input yang benar!");
@@ -158,25 +214,6 @@ public class Menu {
             inputFileMatrix();
             break;
           case 2:
-            inputMatrix();
-            break;
-          default:
-            System.out.println("\nMohon masukan input yang benar!");
-            break;
-        }
-        break;
-      case 7:
-        input();
-        try {
-          q = Integer.parseInt(bufferedReader.readLine());
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
-        switch (q) {
-          case 1:
-            inputFileMatrix();
-            break;
-          case 2:
             inputTranspose();
             break;
           default:
@@ -184,7 +221,7 @@ public class Menu {
             break;
         }
         break;
-      case 8:
+      case 7:
         exit();
         break;
       default:
@@ -194,42 +231,25 @@ public class Menu {
 
     switch (i) {
       case 1:
-        output();
-        try {
-          q = Integer.parseInt(bufferedReader.readLine());
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
-        switch (q) {
-          case 1:
-            InterpolasiFile();
-            break;
-          case 2:
-            InterpolasiKeyboard();
-            break;
-          default:
-            System.out.println("\nMohon masukan input yang benar!");
-            break;
-        }
+        // output();
+        // try {
+        //   q = Integer.parseInt(bufferedReader.readLine());
+        // } catch (IOException e) {
+        //   e.printStackTrace();
+        // }
+        // switch (q) {
+        //   case 1:
+        //     InterpolasiFile();
+        //     break;
+        //   case 2:
+        //     InterpolasiKeyboard();
+        //     break;
+        //   default:
+        //     System.out.println("\nMohon masukan input yang benar!");
+        //     break;
+        // }
         break;
       case 2:
-        output();
-        try {
-          q = Integer.parseInt(bufferedReader.readLine());
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
-        switch (q) {
-          case 1:
-            RegresiFile();
-            break;
-          case 2:
-            RegresiKeyboard();
-            break;
-          default:
-            System.out.println("\nMohon masukan input yang benar!");
-            break;
-        }
         break;
       case 3:
         output();
@@ -314,18 +334,24 @@ public class Menu {
 
   public static void input() {
     System.out.println("");
-    System.out.println("###### Pilih jenis input ######");
-    System.out.println("1. File");
-    System.out.println("2. Keyboard");
-    System.out.print("Masukan pilihan: ");
+    System.out.println("╔═══════════════════════════════════╗");
+    System.out.println("║         PILIH JENIS INPUT         ║");
+    System.out.println("╠═══════════════════════════════════╣");
+    System.out.println("║ 1. File                           ║");
+    System.out.println("║ 2. Keyboard                       ║");
+    System.out.println("╚═══════════════════════════════════╝");
+    System.out.print("Masukkan pilihan Anda: ");
   }
 
   public static void output() {
     System.out.println("");
-    System.out.println("###### Pilih jenis output ######");
-    System.out.println("1. File");
-    System.out.println("2. Keyboard");
-    System.out.print("Masukan pilihan: ");
+    System.out.println("╔═══════════════════════════════════╗");
+    System.out.println("║         PILIH JENIS OUTPUT        ║");
+    System.out.println("╠═══════════════════════════════════╣");
+    System.out.println("║ 1. File                           ║");
+    System.out.println("║ 2. Keyboard                       ║");
+    System.out.println("╚═══════════════════════════════════╝");
+    System.out.print("Masukkan pilihan Anda: ");
   }
 
   public static void inputMatrix(){
@@ -435,12 +461,15 @@ public class Menu {
 
   public static void SPLKeyboard(){
     System.out.println("");
-    System.out.println("###### Pilih metode yang ingin digunakan ######");
-    System.out.println("1. Metode Eliminasi Gauss");
-    System.out.println("2. Metode Eliminasi Gauss-Jordan");
-    System.out.println("3. Metode Matriks Balikan");
-    System.out.println("4. Kaidah Cramer");
-    System.out.print("Masukan pilihan: ");
+    System.out.println("╔═══════════════════════════════════════════════════╗");
+    System.out.println("║         PILIH METODE YANG INGIN DIGUNAKAN         ║");
+    System.out.println("╠═══════════════════════════════════════════════════╣");
+    System.out.println("║ 1. Metode Eliminasi Gauss                         ║");
+    System.out.println("║ 2. Metode Eliminasi Gauss-Jordan                  ║");
+    System.out.println("║ 3. Metode Matriks Invers (Balikan)                ║");
+    System.out.println("║ 4. Kaidah Cramer                                  ║");
+    System.out.println("╚═══════════════════════════════════════════════════╝");
+    System.out.print("Masukkan pilihan Anda: ");
     int i = 0;
     try {
       i = Integer.parseInt(bufferedReader.readLine());
@@ -468,11 +497,15 @@ public class Menu {
 
   public static void DeterminanKeyboard() {
     System.out.println("");
-    System.out.println("###### Pilih metode yang ingin digunakan ######");
-    System.out.println("1. Metode Eliminasi Gauss");
-    System.out.println("2. Metode Ekspansi Kofaktor");
-    System.out.println("3. Metode Sarrus");
-    System.out.print("Masukan pilihan: ");
+    System.out.println("╔══════════════════════════════════════╗");
+    System.out.println("║   PILIH METODE YANG INGIN DIGUNAKAN  ║");
+    System.out.println("╠══════════════════════════════════════╣");
+    System.out.println("║ 1. Metode Eliminasi Gauss            ║");
+    System.out.println("║ 2. Metode Ekspansi Kofaktor          ║");
+    System.out.println("║ 3. Metode Sarrus                     ║");
+    System.out.println("╚══════════════════════════════════════╝");
+    System.out.print("Masukkan pilihan Anda: ");
+
     int i = 0;
     try {
       i = Integer.parseInt(bufferedReader.readLine());
@@ -498,10 +531,14 @@ public class Menu {
 
   public static void InverseKeyboard() {
     System.out.println("");
-    System.out.println("###### Pilih metode yang ingin digunakan ######");
-    System.out.println("1. Metode Eliminasi Gauss-Jordan");
-    System.out.println("2. Metode Adjoint");
-    System.out.print("Masukan pilihan: ");
+    System.out.println("╔══════════════════════════════════════╗");
+    System.out.println("║   PILIH METODE YANG INGIN DIGUNAKAN  ║");
+    System.out.println("╠══════════════════════════════════════╣");
+    System.out.println("║ 1. Metode Eliminasi Gauss-Jordan     ║");
+    System.out.println("║ 2. Metode Adjoint                    ║");
+    System.out.println("╚══════════════════════════════════════╝");
+    System.out.print("Masukkan pilihan Anda: ");
+
     int i = 0;
     try {
       i = Integer.parseInt(bufferedReader.readLine());
@@ -641,11 +678,15 @@ public class Menu {
   public static void DeterminanFile() {
     outputFile();
     System.out.println("");
-    System.out.println("###### Pilih metode yang ingin digunakan ######");
-    System.out.println("1. Metode Eliminasi Gauss");
-    System.out.println("2. Metode Ekspansi Kofaktor");
-    System.out.println("3. Metode Sarrus");
-    System.out.print("Masukan pilihan: ");
+    System.out.println("╔═══════════════════════════════════════╗");
+    System.out.println("║   PILIH METODE YANG INGIN DIGUNAKAN   ║");
+    System.out.println("╠═══════════════════════════════════════╣");
+    System.out.println("║ 1. Metode Eliminasi Gauss             ║");
+    System.out.println("║ 2. Metode Ekspansi Kofaktor           ║");
+    System.out.println("║ 3. Metode Sarrus                      ║");
+    System.out.println("╚═══════════════════════════════════════╝");
+    System.out.print("Masukkan pilihan Anda: ");
+
 
     int i = 0;
     try {
@@ -673,10 +714,13 @@ public class Menu {
   public static void InverseFile() {
     outputFile();
     System.out.println("");
-    System.out.println("###### Pilih metode yang ingin digunakan ######");
-    System.out.println("1. Metode Eliminasi Gauss-Jordan");
-    System.out.println("2. Metode Adjoint");
-    System.out.print("Masukan pilihan: ");
+    System.out.println("╔═══════════════════════════════════════╗");
+    System.out.println("║   PILIH METODE YANG INGIN DIGUNAKAN   ║");
+    System.out.println("╠═══════════════════════════════════════╣");
+    System.out.println("║ 1. Metode Eliminasi Gauss-Jordan      ║");
+    System.out.println("║ 2. Metode Adjoint                     ║");
+    System.out.println("╚═══════════════════════════════════════╝");
+    System.out.print("Masukkan pilihan Anda: ");
 
     int i = 0;
     try {
@@ -701,12 +745,16 @@ public class Menu {
   public static void SPLFile() {
     outputFile();
     System.out.println("");
-    System.out.println("###### Pilih metode yang ingin digunakan ######");
-    System.out.println("1. Metode Eliminasi Gauss");
-    System.out.println("2. Metode Eliminasi Gauss-Jordan");
-    System.out.println("3. Metode Matriks Balikan");
-    System.out.println("4. Kaidah Cramer");
-    System.out.print("Masukan pilihan: ");
+    System.out.println("╔═══════════════════════════════════════╗");
+    System.out.println("║   PILIH METODE YANG INGIN DIGUNAKAN   ║");
+    System.out.println("╠═══════════════════════════════════════╣");
+    System.out.println("║ 1. Metode Eliminasi Gauss             ║");
+    System.out.println("║ 2. Metode Eliminasi Gauss-Jordan      ║");
+    System.out.println("║ 3. Metode Matriks Invers (Balikan)    ║");
+    System.out.println("║ 4. Kaidah Cramer                      ║");
+    System.out.println("╚═══════════════════════════════════════╝");
+    System.out.print("Masukkan pilihan Anda: ");
+
     int i = 0;
     try {
       i = Integer.parseInt(bufferedReader.readLine());
@@ -735,12 +783,15 @@ public class Menu {
   public static void basicMatrixOperations() {
     try {
       System.out.println("");
-      System.out.println("###### Pilih operasi dasar matriks ######");
-      System.out.println("1. Penjumlahan matriks");
-      System.out.println("2. Pengurangan matriks");
-      System.out.println("3. Perkalian matriks");
-      System.out.println("4. Pembagian matriks");
-      System.out.print("Masukan pilihan: ");
+      System.out.println("╔══════════════════════════════════════╗");
+      System.out.println("║      PILIH OPERASI DASAR MATRIKS     ║");
+      System.out.println("╠══════════════════════════════════════╣");
+      System.out.println("║ 1. Penjumlahan matriks               ║");
+      System.out.println("║ 2. Pengurangan matriks               ║");
+      System.out.println("║ 3. Perkalian matriks                 ║");
+      System.out.println("║ 4. Pembagian matriks                 ║");
+      System.out.println("╚══════════════════════════════════════╝");
+      System.out.print("Masukkan pilihan Anda: ");
 
       int i = 0;
       try {
@@ -793,12 +844,16 @@ public class Menu {
   public static void basicMatrixOperationFile() {
     try{
       System.out.println("");
-      System.out.println("###### Pilih operasi dasar matriks ######");
-      System.out.println("1. Penjumlahan matriks");
-      System.out.println("2. Pengurangan matriks");
-      System.out.println("3. Perkalian matriks");
-      System.out.println("4. Pembagian matriks");
-      System.out.print("Masukan pilihan: ");
+      System.out.println("╔══════════════════════════════════════╗");
+      System.out.println("║      PILIH OPERASI DASAR MATRIKS     ║");
+      System.out.println("╠══════════════════════════════════════╣");
+      System.out.println("║ 1. Penjumlahan matriks               ║");
+      System.out.println("║ 2. Pengurangan matriks               ║");
+      System.out.println("║ 3. Perkalian matriks                 ║");
+      System.out.println("║ 4. Pembagian matriks                 ║");
+      System.out.println("╚══════════════════════════════════════╝");
+      System.out.print("Masukkan pilihan Anda: ");
+
 
       int i = 0;
       try {
@@ -846,6 +901,75 @@ public class Menu {
     } catch (Exception e) {
       System.out.println(e.getMessage());
     }
+  }
+
+    // Fungsi untuk perkalian skalar dengan matriks
+    public static void multiplyScalarWithMatrix() {
+      try {
+          // Input jumlah baris dan kolom dari matriks
+          System.out.print("Masukkan jumlah baris matriks: ");
+          int rows = Integer.parseInt(bufferedReader.readLine());
+
+          System.out.print("Masukkan jumlah kolom matriks: ");
+          int cols = Integer.parseInt(bufferedReader.readLine());
+
+          // Deklarasi matriks
+          int[][] matrix = new int[rows][cols];
+
+          // Input elemen-elemen matriks
+          System.out.println("Masukkan elemen-elemen matriks:");
+          for (int i = 0; i < rows; i++) {
+              for (int j = 0; j < cols; j++) {
+                  System.out.print("Elemen [" + i + "][" + j + "]: ");
+                  matrix[i][j] = Integer.parseInt(bufferedReader.readLine());
+              }
+          }
+
+          // Input skalar yang akan dikalikan
+          System.out.print("Masukkan nilai skalar: ");
+          int scalar = Integer.parseInt(bufferedReader.readLine());
+
+          // Proses perkalian matriks dengan skalar
+          int[][] resultMatrix = multiplyMatrixByScalar(matrix, scalar);
+
+          // Menampilkan hasil
+          System.out.println("Hasil operasi adalah: ");
+          displayResult(resultMatrix);
+
+      } catch (IOException e) {
+          e.printStackTrace();
+      } catch (NumberFormatException e) {
+          System.out.println("Input tidak valid. Mohon masukkan angka.");
+      }
+  }
+
+  // Fungsi untuk mengalikan matriks dengan skalar
+  public static int[][] multiplyMatrixByScalar(int[][] matrix, int scalar) {
+      int rows = matrix.length;
+      int cols = matrix[0].length;
+      int[][] resultMatrix = new int[rows][cols];
+
+      // Perkalian skalar dengan matriks
+      for (int i = 0; i < rows; i++) {
+          for (int j = 0; j < cols; j++) {
+              resultMatrix[i][j] = matrix[i][j] * scalar;
+          }
+      }
+      return resultMatrix;
+  }
+
+  // Fungsi untuk menampilkan hasil matriks
+  public static void displayResult(int[][] matrix) {
+      int rows = matrix.length;
+      int cols = matrix[0].length;
+
+      System.out.println("Hasil perkalian skalar dengan matriks:");
+      for (int i = 0; i < rows; i++) {
+          for (int j = 0; j < cols; j++) {
+              System.out.print(matrix[i][j] + " ");
+          }
+          System.out.println();
+      }
   }
 
   public static Matrix inputMatrixFromUser(String matrixName) {

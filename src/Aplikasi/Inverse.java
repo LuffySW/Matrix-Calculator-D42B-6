@@ -41,9 +41,9 @@ public class Inverse {
     public static void displayInverseAdjoint(Matrix m) {
       Matrix n = inverseAdjoint(m);
       if (n == null) {
-        System.out.println("Matriks tidak mempunyai balikan");
+        System.out.println("Matriks tidak mempunyai invers");
       } else {
-        System.out.println("Balikan dari matriks tersebut adalah: ");
+        System.out.println("Invers dari matriks tersebut adalah: ");
         n.displayMatrix();
       }
     }
@@ -51,7 +51,7 @@ public class Inverse {
     public static void fileInverseAdjoint(Matrix m, String namaFile) {
       Matrix n = inverseAdjoint(m);
       if (n == null) {
-        IO.writeFileString(namaFile, "Matriks tidak mempunyai balikan");
+        IO.writeFileString(namaFile, "Matriks tidak mempunyai invers");
       } else {
         IO.writeFileMatrix(namaFile, m);
       }
@@ -106,9 +106,9 @@ public class Inverse {
     public static void displayGaussJordan(Matrix m) {
       Matrix n = eliminasiGaussJordan(m);
       if (n == null) {
-        System.out.println("Matriks tidak mempunyai balikan");
+        System.out.println("Matriks tidak mempunyai invers");
       } else {
-        System.out.println("Balikan dari matriks tersebut adalah: ");
+        System.out.println("Invers dari matriks tersebut adalah: ");
         n.displayMatrix();
       }
     }
@@ -116,7 +116,7 @@ public class Inverse {
     public static void fileGaussJordan(Matrix m, String namaFile) {
       Matrix n = eliminasiGaussJordan(m);
       if (n == null) {
-        IO.writeFileString(namaFile, "Matriks tidak mempunyai balikan");
+        IO.writeFileString(namaFile, "Matriks tidak mempunyai invers");
       } else {
         IO.writeFileMatrix(namaFile, m);
       }

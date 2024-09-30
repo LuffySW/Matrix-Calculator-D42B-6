@@ -6,7 +6,7 @@ import Matrix.*;
 public class IO {
 
   public static File[] getListDir(){
-    File curDir = new File("D:/SMT 3/Tubes Aljabar Linear/Matrix-Calculator-D42B-6/test");
+    File curDir = new File("../test");
     File[] listFiles = curDir.listFiles();
     return listFiles;
   }
@@ -21,7 +21,7 @@ public class IO {
   public static int readRow(String s) {
     int count = 0;
     try{
-      FileReader reader = new FileReader(String.format("D:/SMT 3/Tubes Aljabar Linear/Matrix-Calculator-D42B-6/%s", s));
+      FileReader reader = new FileReader(String.format("../test/%s", s));
       BufferedReader bufferReader = new BufferedReader(reader);
   
       while(bufferReader.readLine() != null){
@@ -37,7 +37,7 @@ public class IO {
   public static int readCol(String s){
     int count = 0;
     try{
-      FileReader reader = new FileReader(String.format("D:/SMT 3/Tubes Aljabar Linear/Matrix-Calculator-D42B-6/test/%s", s));
+      FileReader reader = new FileReader(String.format("../test/%s", s));
       BufferedReader bufferReader = new BufferedReader(reader);
       
       String line = bufferReader.readLine();
@@ -54,7 +54,7 @@ public class IO {
     Matrix a = new Matrix(readRow(s), readCol(s));
 
     try {
-      FileReader reader = new FileReader(String.format("D:/SMT 3/Tubes Aljabar Linear/Matrix-Calculator-D42B-6/test/%s", s));
+      FileReader reader = new FileReader(String.format("../test/%s", s));
       BufferedReader bufferReader = new BufferedReader(reader);
 
       String line;
@@ -76,7 +76,7 @@ public class IO {
 
   public static void writeFileMatrix(String namaFile, Matrix m){
     try{
-      FileWriter writer = new FileWriter(String.format("D:/SMT 3/Tubes Aljabar Linear/Matrix-Calculator-D42B-6/%s.txt", namaFile));
+      FileWriter writer = new FileWriter(String.format("../test/%s.txt", namaFile));
       for(int i = 0; i < m.getRow(); i++){
         for(int j = 0; j < m.getCol(); j++){
           String temp = Double.toString(m.getElmt(i, j));
@@ -93,7 +93,7 @@ public class IO {
 
   public static void writeFileString(String namaFile, String s) {
     try {
-      FileWriter writer = new FileWriter(String.format("D:/SMT 3/Tubes Aljabar Linear/Matrix-Calculator-D42B-6/test/%s.txt", namaFile));
+      FileWriter writer = new FileWriter(String.format("../test/%s.txt", namaFile));
       writer.write(s);
       writer.close();
     } catch (IOException e) {

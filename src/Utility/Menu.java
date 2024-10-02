@@ -537,7 +537,7 @@ public class Menu {
     System.out.println("║ 1. Metode Eliminasi Gauss-Jordan     ║");
     System.out.println("║ 2. Metode Adjoint                    ║");
     System.out.println("╚══════════════════════════════════════╝");
-    System.out.print("Masukkan pilihan Anda: ");
+    System.out.print("Masukkan pilihan Anda: "); 
 
     int i = 0;
     try {

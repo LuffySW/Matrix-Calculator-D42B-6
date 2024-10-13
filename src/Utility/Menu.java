@@ -45,7 +45,10 @@ public class Menu {
     final String BLUE = "\033[0;34m"; // Warna Biru
     final String PURPLE = "\033[0;35m"; // Warna Ungu
     final String CYAN = "\033[0;36m"; // Warna Cyan
-
+    
+    System.out.println();
+    System.out.println();
+    System.out.println();
     System.out.println(CYAN + "░██╗░░░░░░░██╗███████╗██╗░░░░░░█████╗░░█████╗░███╗░░░███╗███████╗  ████████╗░█████╗░" + RESET);
     System.out.println(CYAN + "░██║░░██╗░░██║██╔════╝██║░░░░░██╔══██╗██╔══██╗████╗░████║██╔════╝  ╚══██╔══╝██╔══██╗" + RESET);
     System.out.println(CYAN + "░╚██╗████╗██╔╝█████╗░░██║░░░░░██║░░╚═╝██║░░██║██╔████╔██║█████╗░░  ░░░██║░░░██║░░██║" + RESET);

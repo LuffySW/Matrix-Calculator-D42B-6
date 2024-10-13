@@ -12,43 +12,53 @@ public class Determinan {
         Matrix n = new Matrix();
         n = n.copyMatrix(m);
         double det = 1;
-        System.out.println("Matriks awal:");
-        n.displayMatrix();
         
-        for (int i=0;i<n.getCol();i++){
+        System.out.println("\n===== Matriks Awal =====");
+        n.displayMatrix();
+        System.out.println();
+
+        for (int i = 0; i < n.getCol(); i++) {
             int max = i;
-            for (int j=i+1;j<n.getRow();j++){
-                if (Math.abs(n.getElmt(j, i)) > Math.abs(n.getElmt(max, i))){
+            for (int j = i + 1; j < n.getRow(); j++) {
+                if (Math.abs(n.getElmt(j, i)) > Math.abs(n.getElmt(max, i))) {
                     max = j;
                 }
             }
-            
-            if (Math.abs(n.getElmt(max, i)) == 0){
+
+            if (Math.abs(n.getElmt(max, i)) == 0) {
                 return 0;
             }
-            
-            if (i != max){
+
+            if (i != max) {
                 Operation.swapRow(n, i, max);
                 det *= -1;
-                System.out.println("Swap baris " + i + " dengan baris " + max + ":");
+                System.out.println("\n>>> Swap Baris " + i + " dengan Baris " + max + " <<<");
                 n.displayMatrix();
+                System.out.println();
             }
-            
+
             det *= n.getElmt(i, i);
-            System.out.println("Kali diagonal utama elemen [" + i + ", " + i + "] = " + n.getElmt(i, i));
-            
-            for (int k = i+1; k < n.getRow(); k++){
+            System.out.println(">>> Kali diagonal utama elemen [" + i + ", " + i + "] = " + n.getElmt(i, i) + " <<<");
+            System.out.println("Determinant sementara: " + det);
+            System.out.println();
+
+            for (int k = i + 1; k < n.getRow(); k++) {
                 Operation.rowReduction(n, i, k, i);
-                System.out.println("Reduksi baris " + k + " menggunakan baris " + i + ":");
+                System.out.println(">>> Reduksi Baris " + k + " menggunakan Baris " + i + " <<<");
                 n.displayMatrix();
+                System.out.println();
             }
         }
+
+        System.out.println("===== Determinan Hasil =====");
+        System.out.println("Determinan akhir: " + det);
+        System.out.println();
         
-        System.out.println("Determinan hasil: " + det);
         return Operation.setPrecisionValue(det, 4);
     }
 
     public static void displayOBE(Matrix m) {
+        System.out.println("===== Hasil Determinan dengan OBE =====");
         System.out.println("Determinan matriks tersebut adalah " + determinanOBE(m));
     }
 
@@ -78,8 +88,9 @@ public class Determinan {
             iHasil++;
         }
     
-        System.out.println("Submatriks tanpa baris " + a + " dan kolom " + b + ":");
+        System.out.println("\n>>> Submatriks tanpa baris " + a + " dan kolom " + b + " <<<");
         mHasil.displayMatrix();
+        System.out.println();
     
         if ((a + b) % 2 == 0) {
             hasil = ekspansiKofaktor(mHasil);
@@ -99,17 +110,21 @@ public class Determinan {
         } else {
             i = 0;
             for (j = 0; j < m.getCol(); j++) {
-                System.out.println("Menghitung kofaktor untuk elemen [" + i + ", " + j + "] = " + m.getElmt(i, j));
+                System.out.println("\n>>> Menghitung Kofaktor untuk Elemen [" + i + ", " + j + "] = " + m.getElmt(i, j) + " <<<");
                 hasil += m.getElmt(i, j) * kofaktor(m, i, j);
             }
         }
     
-        System.out.println("Hasil determinan: " + hasil);
+        System.out.println("\n===== Hasil Determinan (Ekspansi Kofaktor) =====");
+        System.out.println("Determinan: " + hasil);
+        System.out.println();
+        
         return Operation.setPrecisionValue(hasil, 4);
     }
 
     public static void displayEkspansiKofaktor(Matrix m) {
-        System.out.println("Determinant matriks tersebut adalah " + ekspansiKofaktor(m));
+        System.out.println("===== Hasil Determinan dengan Ekspansi Kofaktor =====");
+        System.out.println("Determinan matriks tersebut adalah " + ekspansiKofaktor(m));
     }
 
     public static void fileEkspansiKofaktor(Matrix m, String namaFile) {
@@ -120,17 +135,19 @@ public class Determinan {
         double det = 0;
         if (m.isSquare()) {
             if (m.getRow() == 3) {
-                System.out.println("Menggunakan metode Sarrus:");
+                System.out.println("===== Menggunakan Metode Sarrus =====");
                 for (int i = 0; i < 3; i++) {
-                    double positif = m.getElmt(0,i) * m.getElmt(1,(i+1)%3) * m.getElmt(2,(i+2)%3);
-                    double negatif = m.getElmt(0,i) * m.getElmt(1,(i+2)%3) * m.getElmt(2,(i+1)%3);
+                    double positif = m.getElmt(0, i) * m.getElmt(1, (i + 1) % 3) * m.getElmt(2, (i + 2) % 3);
+                    double negatif = m.getElmt(0, i) * m.getElmt(1, (i + 2) % 3) * m.getElmt(2, (i + 1) % 3);
                     
-                    System.out.println("Penambahan: " + m.getElmt(0,i) + " * " + m.getElmt(1,(i+1)%3) + " * " + m.getElmt(2,(i+2)%3) + " = " + positif);
-                    System.out.println("Pengurangan: " + m.getElmt(0,i) + " * " + m.getElmt(1,(i+2)%3) + " * " + m.getElmt(2,(i+1)%3) + " = " + negatif);
+                    System.out.println("\nPenambahan: " + m.getElmt(0, i) + " * " + m.getElmt(1, (i + 1) % 3) + " * " + m.getElmt(2, (i + 2) % 3) + " = " + positif);
+                    System.out.println("Pengurangan: " + m.getElmt(0, i) + " * " + m.getElmt(1, (i + 2) % 3) + " * " + m.getElmt(2, (i + 1) % 3) + " = " + negatif);
                     
                     det += positif - negatif;
                 }
-                System.out.println("Determinan akhir: " + det);
+                System.out.println("\n===== Determinan Akhir (Sarrus) =====");
+                System.out.println("Determinan: " + det);
+                System.out.println();
             } else {
                 System.out.println("Ukuran matrix tidak 3x3, metode Sarrus tidak dapat digunakan");
             }
@@ -138,23 +155,20 @@ public class Determinan {
             System.out.println("Matrix tidak memiliki determinan");
         }
     }
-    
+
     public static void fileSarrus(Matrix m, String namaFile) {
         double det = 0;
-        if(m.isSquare()){
-            if(m.getRow()==3){
-                for (int i=0;i<3;i++){
-                    det +=m.getElmt(0,i)*(m.getElmt(1,(i+1)%3)*m.getElmt(2,(i+2)%3)-m.getElmt(1,(i+2)%3)*m.getElmt(2,(i+1)%3));
+        if (m.isSquare()) {
+            if (m.getRow() == 3) {
+                for (int i = 0; i < 3; i++) {
+                    det += m.getElmt(0, i) * (m.getElmt(1, (i + 1) % 3) * m.getElmt(2, (i + 2) % 3) - m.getElmt(1, (i + 2) % 3) * m.getElmt(2, (i + 1) % 3));
                 }
                 IO.writeFileString(namaFile, Double.toString(det));
                 return;
             }
             IO.writeFileString(namaFile, "Ukuran matrix tidak 3x3, metode Sarrus tidak dapat digunakan");
-            return;
-        }
-        else{
+        } else {
             IO.writeFileString(namaFile, "Matrix tidak memiliki determinan");
-            return;
         }
     }
 }

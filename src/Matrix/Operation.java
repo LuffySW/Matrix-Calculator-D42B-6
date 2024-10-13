@@ -8,23 +8,67 @@ import java.math.RoundingMode;
 public class Operation {
   public static Matrix addMatrix(Matrix a, Matrix b){
     Matrix c = new Matrix(a.getRow(), a.getCol());
+    
+    // Menampilkan langkah-langkah penjumlahan matriks
+    System.out.println("Langkah-langkah penjumlahan matriks:");
+    System.out.println("Matriks 1:");
+    printMatrix(a);
+    System.out.println("Matriks 2:");
+    printMatrix(b);
+    System.out.println("Langkah - langkah penjumlahan:");
+    
     for(int i = 0; i < a.getRow(); i++){
       for(int j = 0; j < a.getCol(); j++){
-        c.setElmt(i, j, (a.getElmt(i, j) + b.getElmt(i, j)));
+        double sum = a.getElmt(i, j) + b.getElmt(i, j);
+        c.setElmt(i, j, sum);
+        System.out.printf("  Elemen [%d][%d] = %.1f + %.1f = %.1f%n", i, j, a.getElmt(i, j), b.getElmt(i, j), sum);
       }
     }
+    
+    System.out.println("Hasil penjumlahan matriks:");
+    printMatrix(c);
+    
     return c;
   }
 
-  public static Matrix subtractMatrix(Matrix a, Matrix b){
+  private static void printMatrix(Matrix m) {
+    for (int i = 0; i < m.getRow(); i++) {
+      for (int j = 0; j < m.getCol(); j++) {
+        System.out.print(m.getElmt(i, j) + " ");
+      }
+      System.out.println();
+    }
+  }
+
+  public static Matrix subtractMatrix(Matrix a, Matrix b) {
+    if (a.getRow() != b.getRow() || a.getCol() != b.getCol()) {
+      throw new IllegalArgumentException("Matriks harus memiliki ukuran yang sama untuk dikurangkan.");
+    }
+    
     Matrix c = new Matrix(a.getRow(), a.getCol());
-    for(int i = 0; i < a.getRow(); i++){
-      for(int j = 0; j < a.getCol(); j++){
-        c.setElmt(i, j, (a.getElmt(i, j) - b.getElmt(i, j)));
+    
+    // Menampilkan langkah-langkah pengurangan matriks
+    System.out.println("Langkah-langkah pengurangan matriks:");
+    System.out.println("Matriks 1:");
+    printMatrix(a);
+    System.out.println("Matriks 2:");
+    printMatrix(b);
+    System.out.println("Langkah - langkah pengurangan:");
+    
+    for (int i = 0; i < a.getRow(); i++) {
+      for (int j = 0; j < a.getCol(); j++) {
+        double difference = a.getElmt(i, j) - b.getElmt(i, j);
+        c.setElmt(i, j, difference);
+        System.out.printf("  Elemen [%d][%d] = %.1f - %.1f = %.1f%n", i, j, a.getElmt(i, j), b.getElmt(i, j), difference);
       }
     }
+    
+    System.out.println("Hasil pengurangan matriks:");
+    printMatrix(c);
+    
     return c;
   }
+
 
   public static double timesRowCol(Matrix a, Matrix b, int row, int col){
     double ans = 0;
@@ -34,16 +78,41 @@ public class Operation {
     return ans;
   }
 
-  public static Matrix multMatrix(Matrix a, Matrix b){
+  public static Matrix multMatrix(Matrix a, Matrix b) {
+    if (a.getCol() != b.getRow()) {
+      throw new IllegalArgumentException("Jumlah kolom matriks A harus sama dengan jumlah baris matriks B.");
+    }
+    
     Matrix c = new Matrix(a.getRow(), b.getCol());
-    for(int i = 0; i < a.getRow(); i++){
-      for(int j = 0; j < b.getCol(); j++){
-        double elmt = Operation.timesRowCol(a, b, i, j);
+    
+    // Menampilkan langkah-langkah perkalian matriks
+    System.out.println("Langkah-langkah perkalian matriks:");
+    
+    for (int i = 0; i < a.getRow(); i++) {
+      for (int j = 0; j < b.getCol(); j++) {
+        double elmt = 0;
+        StringBuilder step = new StringBuilder("Kalikan baris " + (i + 1) + " dengan kolom " + (j + 1) + ": ");
+        
+        for (int k = 0; k < a.getCol(); k++) {
+          elmt += a.getElmt(i, k) * b.getElmt(k, j);
+          step.append("(").append(a.getElmt(i, k)).append(" x ").append(b.getElmt(k, j)).append(") ");
+          if (k < a.getCol() - 1) {
+            step.append("+ ");
+          }
+        }
+        
         c.setElmt(i, j, elmt);
+        step.append("= ").append(elmt);
+        System.out.println(step);
       }
     }
+    
+    System.out.println("Hasil perkalian kedua matriks adalah:");
+    printMatrix(c);
+    
     return c;
   }
+
 
   //mengalikan baris dengan konstanta k
   public static void rowTimesK(Matrix a, double k, int row){

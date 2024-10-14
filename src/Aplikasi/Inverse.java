@@ -87,7 +87,7 @@ public static void displayInverseAdjoint(Matrix m) {
                     Operation.rowReduction(mAug, j, i, j); // Reduksi baris
                 }
             }
-            Operation.rowTimesK(mAug, 1 / mAug.getElmt(j, j), j); // Normalisasi baris
+            Operation.rowTimesK(mAug, 1 / mAug.getElmt(j, j)); // Normalisasi baris
         }
 
         Matrix mHasil = new Matrix(a.getRow(), a.getCol());

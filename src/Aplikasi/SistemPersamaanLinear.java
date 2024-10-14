@@ -103,7 +103,7 @@ public class SistemPersamaanLinear {
                 printMatrixStep(n, "Setelah reduksi baris " + i + " dengan baris " + row);
             }
             n.setPrecision(q);
-            Operation.rowTimesK(n, 1 / n.getElmt(row, j), row);
+            Operation.rowTimesK(n, 1 / n.getElmt(row, j));
             printMatrixStep(n, "Setelah mengalikan baris " + row + " dengan " + (1 / n.getElmt(row, j)));
             row++;
         }
@@ -257,7 +257,7 @@ public class SistemPersamaanLinear {
             } else {
                 Operation.swapRow(n, utama, max);
                 printMatrixStep(n, "Setelah swap baris " + utama + " dan " + max);
-                Operation.rowTimesK(n, 1 / n.getElmt(utama, i), utama);
+                Operation.rowTimesK(n, 1 / n.getElmt(utama, i));
                 printMatrixStep(n, "Setelah mengalikan baris " + utama + " dengan " + (1 / n.getElmt(utama, i)));
 
                 for (int k = utama + 1; k < n.getRow(); k++) {
@@ -270,7 +270,7 @@ public class SistemPersamaanLinear {
             if (utama == n.getRow() - 1) {
                 for (int x = i + 1; x < n.getCol(); x++) {
                     if (Math.abs(n.getElmt(utama, x)) > 0) {
-                        Operation.rowTimesK(n, 1 / n.getElmt(utama, x), utama);
+                        Operation.rowTimesK(n, 1 / n.getElmt(utama, x));
                         printMatrixStep(n, "Setelah mengalikan baris " + utama + " dengan " + (1 / n.getElmt(utama, x)));
                         break;
                     }

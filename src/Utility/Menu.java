@@ -792,7 +792,6 @@ public class Menu {
       System.out.println("║ 1. Penjumlahan matriks               ║");
       System.out.println("║ 2. Pengurangan matriks               ║");
       System.out.println("║ 3. Perkalian matriks                 ║");
-      System.out.println("║ 4. Pembagian matriks                 ║");
       System.out.println("╚══════════════════════════════════════╝");
       System.out.print("Masukkan pilihan Anda: ");
 
@@ -853,7 +852,6 @@ public class Menu {
       System.out.println("║ 1. Penjumlahan matriks               ║");
       System.out.println("║ 2. Pengurangan matriks               ║");
       System.out.println("║ 3. Perkalian matriks                 ║");
-      System.out.println("║ 4. Pembagian matriks                 ║");
       System.out.println("╚══════════════════════════════════════╝");
       System.out.print("Masukkan pilihan Anda: ");
 
@@ -906,75 +904,79 @@ public class Menu {
     }
   }
 
-    // Fungsi untuk perkalian skalar dengan matriks
-    public static void multiplyScalarWithMatrix() {
-      try {
-          // Input jumlah baris dan kolom dari matriks
-          System.out.print("Masukkan jumlah baris matriks: ");
-          int rows = Integer.parseInt(bufferedReader.readLine());
-
-          System.out.print("Masukkan jumlah kolom matriks: ");
-          int cols = Integer.parseInt(bufferedReader.readLine());
-
-          // Deklarasi matriks
-          int[][] matrix = new int[rows][cols];
-
-          // Input elemen-elemen matriks
-          System.out.println("Masukkan elemen-elemen matriks:");
-          for (int i = 0; i < rows; i++) {
-              for (int j = 0; j < cols; j++) {
-                  System.out.print("Elemen [" + i + "][" + j + "]: ");
-                  matrix[i][j] = Integer.parseInt(bufferedReader.readLine());
-              }
-          }
-
-          // Input skalar yang akan dikalikan
-          System.out.print("Masukkan nilai skalar: ");
-          int scalar = Integer.parseInt(bufferedReader.readLine());
-
-          // Proses perkalian matriks dengan skalar
-          int[][] resultMatrix = multiplyMatrixByScalar(matrix, scalar);
-
-          // Menampilkan hasil
-          System.out.println("Hasil operasi adalah: ");
-          displayResult(resultMatrix);
-
-      } catch (IOException e) {
-          e.printStackTrace();
-      } catch (NumberFormatException e) {
-          System.out.println("Input tidak valid. Mohon masukkan angka.");
-      }
-  }
-
-  // Fungsi untuk mengalikan matriks dengan skalar
-  public static int[][] multiplyMatrixByScalar(int[][] matrix, int scalar) {
-      int rows = matrix.length;
-      int cols = matrix[0].length;
-      int[][] resultMatrix = new int[rows][cols];
-
-      // Perkalian skalar dengan matriks
-      for (int i = 0; i < rows; i++) {
-          for (int j = 0; j < cols; j++) {
-              resultMatrix[i][j] = matrix[i][j] * scalar;
-          }
-      }
-      return resultMatrix;
-  }
-
-  // Fungsi untuk menampilkan hasil matriks
-  public static void displayResult(int[][] matrix) {
-      int rows = matrix.length;
-      int cols = matrix[0].length;
-
-      System.out.println("Hasil perkalian skalar dengan matriks:");
-      for (int i = 0; i < rows; i++) {
-          for (int j = 0; j < cols; j++) {
-              System.out.print(matrix[i][j] + " ");
-          }
-          System.out.println();
-      }
-  }
-
+      // Fungsi untuk perkalian skalar dengan matriks
+      public static void multiplyScalarWithMatrix() {
+        try {
+            // Input jumlah baris dan kolom dari matriks
+            System.out.print("Masukkan jumlah baris matriks: ");
+            int rows = Integer.parseInt(bufferedReader.readLine());
+  
+            System.out.print("Masukkan jumlah kolom matriks: ");
+            int cols = Integer.parseInt(bufferedReader.readLine());
+  
+            // Deklarasi matriks
+            int[][] matrix = new int[rows][cols];
+  
+            // Input elemen-elemen matriks
+            System.out.println("Masukkan elemen-elemen matriks:");
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    System.out.print("Elemen [" + i + "][" + j + "]: ");
+                    matrix[i][j] = Integer.parseInt(bufferedReader.readLine());
+                }
+            }
+  
+            // Input skalar yang akan dikalikan
+            System.out.print("Masukkan nilai skalar: ");
+            int scalar = Integer.parseInt(bufferedReader.readLine());
+  
+            // Proses perkalian matriks dengan skalar
+            int[][] resultMatrix = multiplyMatrixByScalar(matrix, scalar);
+  
+            // Menampilkan hasil
+            System.out.println("Hasil operasi adalah: ");
+            displayResult(resultMatrix);
+  
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (NumberFormatException e) {
+            System.out.println("Input tidak valid. Mohon masukkan angka.");
+        }
+    }
+  
+    // Fungsi untuk mengalikan matriks dengan skalar
+    public static int[][] multiplyMatrixByScalar(int[][] matrix, int scalar) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int[][] resultMatrix = new int[rows][cols];
+  
+        // Perkalian skalar dengan matriks
+        System.out.println("Langkah-langkah perkalian skalar dengan matriks:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                int originalValue = matrix[i][j];
+                resultMatrix[i][j] = originalValue * scalar;
+  
+                // Menampilkan langkah perkalian
+                System.out.printf("Elemen [%d][%d] = %d x %d = %d%n", i, j, originalValue, scalar, resultMatrix[i][j]);
+            }
+        }
+        return resultMatrix;
+    }
+  
+    // Fungsi untuk menampilkan hasil matriks
+    public static void displayResult(int[][] matrix) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+  
+        System.out.println("Hasil perkalian skalar dengan matriks:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
   public static Matrix inputMatrixFromUser(String matrixName) {
     System.out.println("Masukkan ukuran dan elemen matriks " + matrixName + ":");
     System.out.print("Masukkan jumlah baris: ");

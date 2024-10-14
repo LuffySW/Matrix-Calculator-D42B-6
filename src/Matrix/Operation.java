@@ -115,11 +115,24 @@ public class Operation {
 
 
   //mengalikan baris dengan konstanta k
-  public static void rowTimesK(Matrix a, double k, int row){
-    for(int i = 0; i < a.getCol(); i++){
-      a.setElmt(row, i, k*a.getElmt(row, i));
+  public static void rowTimesK(Matrix a, double k) {
+    System.out.println("Langkah-langkah perkalian skalar dengan matriks:");
+    
+    for (int i = 0; i < a.getRow(); i++) {
+      for (int j = 0; j < a.getCol(); j++) {
+        double originalValue = a.getElmt(i, j);
+        double newValue = originalValue * k;
+        a.setElmt(i, j, newValue);
+        
+        // Menampilkan langkah perkalian
+        System.out.printf("Elemen [%d][%d] = %.1f x %.1f = %.1f%n", i, j, originalValue, k, newValue);
+      }
     }
+    
+    System.out.println("Hasil perkalian skalar dengan matriks:");
+    printMatrix(a);
   }
+
   //menukar kolom 1 dengan kolom2
   public static void swapRow(Matrix a, int row1, int row2){
     double temp;

@@ -91,7 +91,7 @@ public static void displayInverseAdjoint(Matrix m) {
                         mAug.displayMatrix(); // Tampilkan matriks setelah reduksi baris
                     }
                 }
-                Operation.rowTimesK(mAug, 1 / mAug.getElmt(j, j)); // Normalisasi baris
+                Operation.rowTimesK(mAug, 1 / mAug.getElmt(j, j), j); // Normalisasi baris
                 System.out.println("Normalisasi baris " + j);
                 mAug.displayMatrix(); // Tampilkan matriks setelah normalisasi baris
             }

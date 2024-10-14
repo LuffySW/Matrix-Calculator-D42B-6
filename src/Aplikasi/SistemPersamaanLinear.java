@@ -103,7 +103,7 @@ public class SistemPersamaanLinear {
                 printMatrixStep(n, "Setelah reduksi baris " + i + " dengan baris " + row);
             }
             n.setPrecision(q);
-            Operation.rowTimesK(n, 1 / n.getElmt(row, j));
+            Operation.rowTimesK(n, 1 / n.getElmt(row, j), row);
             printMatrixStep(n, "Setelah mengalikan baris " + row + " dengan " + (1 / n.getElmt(row, j)));
             row++;
         }
@@ -170,7 +170,7 @@ public class SistemPersamaanLinear {
         } else {
             System.out.println("Jumlah persamaan tidak sama dengan jumlah variabel. Sistem tidak dapat diselesaikan.");
         }
-    }   
+    }
 
     public static void FileSPLinverse(Matrix m, String namaFile) {
         Matrix a = new Matrix(m.getRow(), m.getCol() - 1);
@@ -257,7 +257,7 @@ public class SistemPersamaanLinear {
             } else {
                 Operation.swapRow(n, utama, max);
                 printMatrixStep(n, "Setelah swap baris " + utama + " dan " + max);
-                Operation.rowTimesK(n, 1 / n.getElmt(utama, i));
+                Operation.rowTimesK(n, 1 / n.getElmt(utama, i), utama);
                 printMatrixStep(n, "Setelah mengalikan baris " + utama + " dengan " + (1 / n.getElmt(utama, i)));
 
                 for (int k = utama + 1; k < n.getRow(); k++) {
@@ -270,7 +270,7 @@ public class SistemPersamaanLinear {
             if (utama == n.getRow() - 1) {
                 for (int x = i + 1; x < n.getCol(); x++) {
                     if (Math.abs(n.getElmt(utama, x)) > 0) {
-                        Operation.rowTimesK(n, 1 / n.getElmt(utama, x));
+                        Operation.rowTimesK(n, 1 / n.getElmt(utama, x), utama);
                         printMatrixStep(n, "Setelah mengalikan baris " + utama + " dengan " + (1 / n.getElmt(utama, x)));
                         break;
                     }

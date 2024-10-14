@@ -931,7 +931,7 @@ public class Menu {
           double scalar = Double.parseDouble(bufferedReader.readLine());
 
           // Proses perkalian matriks dengan skalar
-          Matrix resultMatrix = Operation.rowTimesK(A, scalar);
+          Matrix resultMatrix = Operation.scalarMultiply(A, scalar);
 
           // Menampilkan hasil
           System.out.println("Hasil operasi adalah: ");
@@ -954,7 +954,7 @@ public class Menu {
           double scalar = Double.parseDouble(bufferedReader.readLine());
 
           // Proses perkalian matriks dengan skalar
-          Matrix resultMatrix = Operation.rowTimesK(A, scalar);
+          Matrix resultMatrix = Operation.scalarMultiply(A, scalar);
 
           outputFile();
           IO.writeFileMatrix(Menu.namaFile, resultMatrix);

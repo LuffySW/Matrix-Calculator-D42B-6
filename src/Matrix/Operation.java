@@ -115,24 +115,35 @@ public class Operation {
 
 
   //mengalikan baris dengan konstanta k
-  public static Matrix rowTimesK(Matrix a, double k) {
-    System.out.println("Langkah-langkah perkalian skalar dengan matriks:");
+  public static void rowTimesK(Matrix a, double k, int row){
+    for(int i = 0; i < a.getCol(); i++){
+      a.setElmt(row, i, k*a.getElmt(row, i));
+    }
+  }
+
+  // Mengalikan matriks dengan skalar k
+  public static Matrix scalarMultiply(Matrix a, double k) {
+    Matrix result = new Matrix(a.getRow(), a.getCol());
+    
+    // Menampilkan langkah-langkah perkalian matriks dengan skalar
+    System.out.println("Langkah-langkah perkalian matriks dengan skalar:");
+    System.out.println("Matriks:");
+    printMatrix(a);
+    System.out.println("Skalar: " + k);
+    System.out.println("Langkah - langkah perkalian:");
     
     for (int i = 0; i < a.getRow(); i++) {
       for (int j = 0; j < a.getCol(); j++) {
-        double originalValue = a.getElmt(i, j);
-        double newValue = originalValue * k;
-        a.setElmt(i, j, newValue);
-        
-        // Menampilkan langkah perkalian
-        System.out.printf("Elemen [%d][%d] = %.1f x %.1f = %.1f%n", i, j, originalValue, k, newValue);
+        double product = a.getElmt(i, j) * k;
+        result.setElmt(i, j, product);
+        System.out.printf("  Elemen [%d][%d] = %.1f * %.1f = %.1f%n", i, j, a.getElmt(i, j), k, product);
       }
     }
     
-    System.out.println("Hasil perkalian skalar dengan matriks:");
-    printMatrix(a);
+    System.out.println("Hasil perkalian matriks dengan skalar:");
+    printMatrix(result);
     
-    return a;
+    return result;
   }
 
   //menukar kolom 1 dengan kolom2

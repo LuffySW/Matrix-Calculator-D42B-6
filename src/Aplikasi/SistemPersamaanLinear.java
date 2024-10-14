@@ -170,7 +170,7 @@ public class SistemPersamaanLinear {
         } else {
             System.out.println("Jumlah persamaan tidak sama dengan jumlah variabel. Sistem tidak dapat diselesaikan.");
         }
-    }
+    }   
 
     public static void FileSPLinverse(Matrix m, String namaFile) {
         Matrix a = new Matrix(m.getRow(), m.getCol() - 1);

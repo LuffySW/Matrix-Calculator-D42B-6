@@ -146,7 +146,23 @@ public class Menu {
         }
         break;
       case 2:
-        multiplyScalarWithMatrix();
+      input();
+      try {
+        q = Integer.parseInt(bufferedReader.readLine());
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+      switch (q) {
+        case 1:
+          multiplyScalarWithMatrixFile();
+          break;
+        case 2:
+          multiplyScalarWithMatrix();
+          break;
+        default:
+          System.out.println("\nMohon masukan input yang benar!");
+          break;
+      }
         break;
       case 3:
         input();
@@ -907,43 +923,46 @@ public class Menu {
       // Fungsi untuk perkalian skalar dengan matriks
       public static void multiplyScalarWithMatrix() {
         try {
-            // Input jumlah baris dan kolom dari matriks
-            System.out.print("Masukkan jumlah baris matriks: ");
-            int rows = Integer.parseInt(bufferedReader.readLine());
-  
-            System.out.print("Masukkan jumlah kolom matriks: ");
-            int cols = Integer.parseInt(bufferedReader.readLine());
-  
-            // Deklarasi matriks
-            int[][] matrix = new int[rows][cols];
-  
-            // Input elemen-elemen matriks
-            System.out.println("Masukkan elemen-elemen matriks:");
-            for (int i = 0; i < rows; i++) {
-                for (int j = 0; j < cols; j++) {
-                    System.out.print("Elemen [" + i + "][" + j + "]: ");
-                    matrix[i][j] = Integer.parseInt(bufferedReader.readLine());
-                }
-            }
-  
-            // Input skalar yang akan dikalikan
-            System.out.print("Masukkan nilai skalar: ");
-            int scalar = Integer.parseInt(bufferedReader.readLine());
-  
-            // Proses perkalian matriks dengan skalar
-            int[][] resultMatrix = multiplyMatrixByScalar(matrix, scalar);
-  
-            // Menampilkan hasil
-            System.out.println("Hasil operasi adalah: ");
-            displayResult(resultMatrix);
-  
+          // Input matriks dari pengguna
+          Matrix A = inputMatrixFromUser("MatriksSkalar");
+
+          // Input skalar yang akan dikalikan
+          System.out.print("Masukkan nilai skalar: ");
+          double scalar = Double.parseDouble(bufferedReader.readLine());
+
+          // Proses perkalian matriks dengan skalar
+          Matrix resultMatrix = Operation.rowTimesK(A, scalar);
+
+          // Menampilkan hasil
+          System.out.println("Hasil operasi adalah: ");
+          resultMatrix.displayMatrix();
+
         } catch (IOException e) {
-            e.printStackTrace();
+          e.printStackTrace();
         } catch (NumberFormatException e) {
-            System.out.println("Input tidak valid. Mohon masukkan angka.");
+          System.out.println("Input tidak valid. Mohon masukkan angka.");
+        }
+      }
+
+    public static void multiplyScalarWithMatrixFile() {
+        try {
+          // Input matriks dari pengguna
+          Matrix A = inputMatrixFromFile("MatriksSkalar");
+
+          // Input skalar yang akan dikalikan
+          System.out.print("Masukkan nilai skalar: ");
+          double scalar = Double.parseDouble(bufferedReader.readLine());
+
+          // Proses perkalian matriks dengan skalar
+          Matrix resultMatrix = Operation.rowTimesK(A, scalar);
+
+          outputFile();
+          IO.writeFileMatrix(Menu.namaFile, resultMatrix);
+        } catch (IOException e) {
+          e.printStackTrace();
         }
     }
-  
+
     // Fungsi untuk mengalikan matriks dengan skalar
     public static int[][] multiplyMatrixByScalar(int[][] matrix, int scalar) {
         int rows = matrix.length;

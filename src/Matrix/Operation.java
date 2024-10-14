@@ -115,7 +115,7 @@ public class Operation {
 
 
   //mengalikan baris dengan konstanta k
-  public static void rowTimesK(Matrix a, double k) {
+  public static Matrix rowTimesK(Matrix a, double k) {
     System.out.println("Langkah-langkah perkalian skalar dengan matriks:");
     
     for (int i = 0; i < a.getRow(); i++) {
@@ -131,6 +131,8 @@ public class Operation {
     
     System.out.println("Hasil perkalian skalar dengan matriks:");
     printMatrix(a);
+    
+    return a;
   }
 
   //menukar kolom 1 dengan kolom2

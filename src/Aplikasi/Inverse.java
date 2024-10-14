@@ -60,46 +60,52 @@ public static void displayInverseAdjoint(Matrix m) {
         }
     }
 
-    public static Matrix eliminasiGaussJordan(Matrix a) {
-        Matrix mAug = new Matrix(a.getRow(), a.getCol() * 2);
-        Matrix I = new Matrix(a.getRow(), a.getCol());
-        I.createIdentityMatrix(); // Membuat matriks identitas
+        public static Matrix eliminasiGaussJordan(Matrix a) {
+            Matrix mAug = new Matrix(a.getRow(), a.getCol() * 2);
+            Matrix I = new Matrix(a.getRow(), a.getCol());
+            I.createIdentityMatrix(); // Membuat matriks identitas
 
-        mAug = Operation.augmentedMatrix(a, I); // Pastikan augmentedMatrix ada
+            mAug = Operation.augmentedMatrix(a, I); // Pastikan augmentedMatrix ada
 
-        for (int j = 0; j < a.getCol(); j++) {
-            int idxMax = j;
-
-            for (int i = j + 1; i < a.getRow(); i++) {
-                if (Math.abs(mAug.getElmt(i, j)) > Math.abs(mAug.getElmt(idxMax, j))) {
-                    idxMax = i; // Cari baris maksimum
-                }
-            }
-
-            if (Math.abs(mAug.getElmt(idxMax, j)) == 0) {
-                return null; // Tidak ada invers
-            }
-
-            Operation.swapRow(mAug, idxMax, j); // Menukar baris
-
-            for (int i = 0; i < a.getRow(); i++) {
-                if (i != j) {
-                    Operation.rowReduction(mAug, j, i, j); // Reduksi baris
-                }
-            }
-            Operation.rowTimesK(mAug, 1 / mAug.getElmt(j, j)); // Normalisasi baris
-        }
-
-        Matrix mHasil = new Matrix(a.getRow(), a.getCol());
-        for (int i = 0; i < a.getRow(); i++) {
             for (int j = 0; j < a.getCol(); j++) {
-                mHasil.setElmt(i, j, mAug.getElmt(i, j + a.getCol())); // Mengambil hasil dari augmented matrix
-            }
-        }
-        return mHasil;
-    }
+                int idxMax = j;
 
-    public static void displayGaussJordan(Matrix m) {
+                for (int i = j + 1; i < a.getRow(); i++) {
+                    if (Math.abs(mAug.getElmt(i, j)) > Math.abs(mAug.getElmt(idxMax, j))) {
+                        idxMax = i; // Cari baris maksimum
+                    }
+                }
+
+                if (Math.abs(mAug.getElmt(idxMax, j)) == 0) {
+                    return null; // Tidak ada invers
+                }
+
+                Operation.swapRow(mAug, idxMax, j); // Menukar baris
+                System.out.println("Menukar baris " + idxMax + " dengan baris " + j);
+                mAug.displayMatrix(); // Tampilkan matriks setelah menukar baris
+
+                for (int i = 0; i < a.getRow(); i++) {
+                    if (i != j) {
+                        Operation.rowReduction(mAug, j, i, j); // Reduksi baris
+                        System.out.println("Reduksi baris " + i + " dengan baris " + j);
+                        mAug.displayMatrix(); // Tampilkan matriks setelah reduksi baris
+                    }
+                }
+                Operation.rowTimesK(mAug, 1 / mAug.getElmt(j, j)); // Normalisasi baris
+                System.out.println("Normalisasi baris " + j);
+                mAug.displayMatrix(); // Tampilkan matriks setelah normalisasi baris
+            }
+
+            Matrix mHasil = new Matrix(a.getRow(), a.getCol());
+            for (int i = 0; i < a.getRow(); i++) {
+                for (int j = 0; j < a.getCol(); j++) {
+                    mHasil.setElmt(i, j, mAug.getElmt(i, j + a.getCol())); // Mengambil hasil dari augmented matrix
+                }
+            }
+            return mHasil;
+        }
+
+        public static void displayGaussJordan(Matrix m) {
         Matrix n = eliminasiGaussJordan(m);
         if (n == null) {
             System.out.println("Matriks tidak mempunyai invers.");
